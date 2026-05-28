@@ -1,0 +1,104 @@
+/* Glassmorphic Form Card */
+.form-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  margin: 24px auto 0 auto;
+  max-width: 950px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
+}
+
+/* Premium Labels */
+.form-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Form inputs styling */
+.premium-input {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  color: var(--text-primary) !important;
+  transition: var(--transition-fast) !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+.premium-input:focus {
+  background: #ffffff !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-glow) !important;
+  outline: none !important;
+}
+
+/* Form Actions Button */
+.submit-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #ffffff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px var(--primary-glow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(27, 77, 62, 0.25);
+  opacity: 1;
+}
+
+/* Form Card Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 40px 28px;
+    max-width: 100%;
+  }
+
+  .form-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .premium-input {
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .submit-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+}

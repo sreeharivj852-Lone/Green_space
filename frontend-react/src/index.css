@@ -1,0 +1,285 @@
+:root {
+  /* Color Palette - Premium Nature Inspired */
+  --primary: #1b4d3e;          /* Rich forest green */
+  --primary-glow: rgba(27, 77, 62, 0.15);
+  --primary-light: #2d6a4f;     /* Emerald green */
+  --primary-light-glow: rgba(45, 106, 79, 0.2);
+  --accent: #52b788;           /* Mint/leaf green accent */
+  --accent-glow: rgba(82, 183, 136, 0.3);
+  
+  --bg-main: linear-gradient(135deg, #f3f7f4 0%, #e2eee5 100%);
+  --bg-sidebar: #0a1410;       /* Deep dark green/black for sidebar */
+  
+  /* Frosted Glass Cards */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --card-shadow: 0 10px 30px -5px rgba(27, 77, 62, 0.08), 0 4px 12px -2px rgba(27, 77, 62, 0.03);
+  --card-glow-shadow: 0 15px 40px -5px rgba(82, 183, 136, 0.2);
+  
+  /* Text colors */
+  --text-primary: #111f1a;     /* Dark charcoal green */
+  --text-secondary: #4a5c53;   /* Muted leafy secondary text */
+  --text-muted: #80968c;
+  
+  /* Borders and inputs */
+  --border-color: rgba(27, 77, 62, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.85);
+  --input-border: rgba(27, 77, 62, 0.12);
+  
+  /* Fonts & Radius */
+  --font-sans: 'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Global Reset & Base Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-align: left;
+}
+
+/* Premium Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(27, 77, 62, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 77, 62, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Main Layout Wrapper - Accounts for Fixed Sidebar */
+.main-content {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  padding: 32px 40px;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* All Page Containers */
+.dashboard-container,
+.plants-page,
+.orders-container,
+.careschedule-container,
+.suppliers-container,
+.addschedule-container,
+.addsupplier-container,
+.add-plant-container,
+.edit-plant-container,
+.edit-orders-container,
+.make-orders-container {
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  flex: 1;
+}
+
+/* Add top spacing between header and page sections */
+.dashboard-title,
+.page-title,
+.orders-title,
+.careschedule-header,
+.suppliers-header,
+.addsupplier-card,
+.form-card,
+.addschedule-card,
+.makeorder-form,
+.editorder-card {
+  margin-top: 0;
+}
+
+/* Add subtle extra spacing before glass cards and forms */
+.addsupplier-container,
+.addschedule-container,
+.makeorder-container,
+.editorder-container,
+.add-plant-container,
+.edit-plant-container,
+.edit-orders-container,
+.make-orders-container {
+  padding-top: 16px;
+}
+
+
+/* Tablet - Sidebar collapses to icons */
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .dashboard-container,
+  .plants-page,
+  .orders-container,
+  .careschedule-container,
+  .suppliers-container,
+  .addschedule-container,
+  .addsupplier-container,
+  .add-plant-container,
+  .edit-plant-container,
+  .edit-orders-container,
+  .make-orders-container {
+    padding: 36px 32px;
+  }
+}
+
+/* Mobile - Sidebar becomes hidden drawer */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 80px;
+  }
+
+  .dashboard-container,
+  .plants-page,
+  .orders-container,
+  .careschedule-container,
+  .suppliers-container,
+  .addschedule-container,
+  .addsupplier-container,
+  .add-plant-container,
+  .edit-plant-container,
+  .edit-orders-container,
+  .make-orders-container {
+    padding: 28px 20px;
+  }
+}
+
+/* Premium Form Inputs Overrides */
+input.form-control,
+select.form-control,
+textarea.form-control,
+.premium-input {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  border-radius: var(--radius-md) !important;
+  transition: var(--transition-fast) !important;
+  box-shadow: none !important;
+}
+
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus,
+.premium-input:focus {
+  background: #ffffff !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-glow) !important;
+  outline: none !important;
+}
+
+/* Custom Table Styles */
+.custom-table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+.custom-table th {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.8px !important;
+  padding: 16px 20px !important;
+  border: none !important;
+}
+
+.custom-table td {
+  padding: 16px 20px !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  font-size: 14px !important;
+}
+
+.custom-table tbody tr {
+  background: transparent !important;
+  transition: var(--transition-fast) !important;
+}
+
+.custom-table tbody tr:hover {
+  background: rgba(82, 183, 136, 0.06) !important;
+}
+
+.custom-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Badge Tags styling */
+.category-badge {
+  background: rgba(82, 183, 136, 0.15) !important;
+  color: var(--primary-light) !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+}
